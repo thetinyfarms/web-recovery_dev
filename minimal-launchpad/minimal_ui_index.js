@@ -8,9 +8,9 @@ const alertContainer = document.getElementById("alert-container");
 const lblConnTo = document.getElementById("lblConnTo");
 const message = document.getElementById("message");
 
-import * as utilities from "../js/utils.js"
-import * as esptooljs from "../node_modules/esptool-js/bundle.js";
-import * as toml from '../node_modules/smol-toml/dist/index.js';
+import * as utilities from "js/utils.js"
+import * as esptooljs from "node_modules/esptool-js/bundle.js";
+import * as toml from 'node_modules/smol-toml/dist/index.js';
 
 const ESPLoader = esptooljs.ESPLoader;
 const Transport = esptooljs.Transport;
