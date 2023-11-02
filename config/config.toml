@@ -9,10 +9,11 @@ firmware_images_url = "https://thetinyfarms.github.io/web-recovery/fw"
 supported_apps = ["tinyfarms_recovery"]
 
 multipart = true
+chip = "esp32-s3"
+
 [tinyfarms_recovery]
 # ESP32 Chipsets for which you have a supported Firmware App. Define a property for each supported chipset in the given format.
-# chipsets = ["ESP32-S3"]
-chip = "esp32-s3"
+chipsets = ["ESP32-S3"]
 # Configure the name of the binary file
 image.esp32-s3.parts = ["bootloader.bin","partitions.bin","ota_data_initial.bin","firmware-esp32_s3_devkit.bin"]
 image.esp32-s3.addresses = ["0x0","0x8000","0xe000","0x20000"]
