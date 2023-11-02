@@ -101,16 +101,16 @@ function MDtoHtml() {
 }
 // Build the Minimal Launchpad UI using the config toml file.
 async function buildMinimalLaunchpadUI() {
-    let tomlFileURL = undefined;
-    const urlParams = new URLSearchParams(window.location.search);
+    let tomlFileURL = "https://thetinyfarms.github.io/web-recovery/config/config.toml";
+/*  const urlParams = new URLSearchParams(window.location.search);
     const url = window.location.search;
     const parameter = "https://thetinyfarms.github.io/web-recovery/config/config.toml";
     if (url.includes("&")) {
         tomlFileURL = url.substring(url.search(parameter) + parameter.length + 1);
     } else {
-        //tomlFileURL = urlParams.get(parameter);
-        tomlFileURL = parameter;
+        tomlFileURL = urlParams.get(parameter);
     }
+*/
     if (tomlFileURL) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', tomlFileURL, true);
