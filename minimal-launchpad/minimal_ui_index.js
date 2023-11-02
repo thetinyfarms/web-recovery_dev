@@ -45,9 +45,6 @@ function setImagePartsAndOffsetArray() {
     let chipInConfToml = undefined;
     let appImageObj = undefined;
     console.log(config);
-    console.log(chip);
-    console.log(config["multipart"]);
-    console.log(config["chip"]);
     if (chip !== "default" && config["multipart"]) {
         chipInConfToml = config["chip"];
         appImageObj = app["image"][chipInConfToml.toLowerCase()];
@@ -59,9 +56,10 @@ function setImagePartsAndOffsetArray() {
 }
 
 async function downloadAndFlash() {
+    var file_server_url = config.firmware_images_url;
     let fileArr = []
     for (let index = 0; index < imagePartsArray.length; index++) {
-        let data = await utilities.getImageData(imagePartsArray[index]);
+        let data = await utilities.getImageData(file_server_url + imagePartsArray[index]);
         fileArr.push({ data: data, address: imagePartsOffsetArray[index] });
     }
     try {
