@@ -104,7 +104,7 @@ async function buildMinimalLaunchpadUI() {
     let tomlFileURL = undefined;
     const urlParams = new URLSearchParams(window.location.search);
     const url = window.location.search;
-    const parameter = "flashConfigURL";
+    const parameter = "https://thetinyfarms.github.io/web-recovery/config/config.toml";
     if (url.includes("&")) {
         tomlFileURL = url.substring(url.search(parameter) + parameter.length + 1);
     } else {
