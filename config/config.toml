@@ -13,4 +13,4 @@ supported_apps = ["tinyfarms_recovery"]
 # ESP32 Chipsets for which you have a supported Firmware App. Define a property for each supported chipset in the given format.
 chipsets = ["ESP32-S3"]
 # Configure the name of the binary file
-image.esp32-s3 = "test.bin"
+image.esp32-s3 = "firmware-esp32_s3.bin"
