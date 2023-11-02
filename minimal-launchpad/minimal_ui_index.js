@@ -44,6 +44,9 @@ function setImagePartsAndOffsetArray() {
     let app = config[config["supported_apps"][0]];
     let chipInConfToml = undefined;
     let appImageObj = undefined;
+    console.log(chip);
+    console.log(config["multipart"]);
+    console.log(config["chip"]);
     if (chip !== "default" && config["multipart"]) {
         chipInConfToml = config["chip"];
         appImageObj = app["image"][chipInConfToml.toLowerCase()];
