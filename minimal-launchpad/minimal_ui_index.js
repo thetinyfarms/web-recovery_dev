@@ -44,6 +44,7 @@ function setImagePartsAndOffsetArray() {
     let app = config[config["supported_apps"][0]];
     let chipInConfToml = undefined;
     let appImageObj = undefined;
+    console.log(config);
     console.log(chip);
     console.log(config["multipart"]);
     console.log(config["chip"]);
@@ -127,7 +128,6 @@ async function buildMinimalLaunchpadUI() {
             }
             if (xhr.readyState === 4 && xhr.status === 200) {
                 config = toml.parse(xhr.responseText);
-                console.log(config);
                 return config;
             }
         }
