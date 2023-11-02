@@ -108,7 +108,8 @@ async function buildMinimalLaunchpadUI() {
     if (url.includes("&")) {
         tomlFileURL = url.substring(url.search(parameter) + parameter.length + 1);
     } else {
-        tomlFileURL = urlParams.get(parameter);
+        //tomlFileURL = urlParams.get(parameter);
+        tomlFileURL = parameter;
     }
     if (tomlFileURL) {
         var xhr = new XMLHttpRequest();
