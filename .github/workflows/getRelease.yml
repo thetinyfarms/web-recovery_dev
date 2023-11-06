@@ -30,8 +30,8 @@ jobs:
           existing_version=$(cat fw/version.txt)
           downloaded_version="${{ steps.get-files.outputs.version }}"
           if [ "$existing_version" != "$downloaded_version" ]; then
-            echo "New version $downloaded_version detected. Committing changes."
-            echo "$downloaded_version" > version.txt
+            echo "New version $downloaded_version  detected. Committing changes."
+            echo "$downloaded_version" > fw/version.txt
             exit 0
           else
             echo "File versions are the same. No changes to commit."
@@ -41,6 +41,7 @@ jobs:
       - name: Commit and Push Changes
         if: steps.check-if-new-version.outputs.return-code == '0'
         run: |
+          downloaded_version="${{ steps.get-files.outputs.version }}"
           git config --global user.email "hc@tinyfar.ms"
           git config --global user.name "HC"
           git add fw/firmware-esp32_s3_devkit.bin fw/version.txt
