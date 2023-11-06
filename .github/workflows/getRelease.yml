@@ -9,11 +9,41 @@ permissions:
 jobs:
   download:
     runs-on: ubuntu-latest
+    
     steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v3
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            
       - name: Get files from tinyfarms-releases
+        id: get-files
         uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: 'thetinyfarms/tinyfarms-releases'
           file: 'firmware-esp32_s3_devkit.bin'
           target: 'fw/firmware-esp32_s3_devkit.bin'
           token: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Check If New Version
+        run: |
+          existing_version=$(cat fw/version.txt)
+          downloaded_version="${{ steps.fetch-file.outputs.version }}"
+          if [ "$existing_version" != "$downloaded_version" ]; then
+            echo "New version $downloaded_version detected. Committing changes."
+            echo "$downloaded_version" > version.txt
+            exit 0
+          else
+            echo "File versions are the same. No changes to commit."
+            exit 1
+          fi
+
+      - name: Commit and Push Changes
+        if: steps.check-if-new-version.outputs.return-code == '0'
+        run: |
+          git config --global user.email "hc@tinyfar.ms"
+          git config --global user.name "HC"
+          git add fw/firmware-esp32_s3_devkit.bin
+          git commit -m "Update release files to "
+          git push
+        working-directory: ./thetinyfarms/web-recovery
