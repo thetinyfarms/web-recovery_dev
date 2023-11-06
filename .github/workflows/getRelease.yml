@@ -28,7 +28,7 @@ jobs:
       - name: Check If New Version
         run: |
           existing_version=$(cat fw/version.txt)
-          downloaded_version="${{ steps.fetch-file.outputs.version }}"
+          downloaded_version="${{ steps.get-files.outputs.version }}"
           if [ "$existing_version" != "$downloaded_version" ]; then
             echo "New version $downloaded_version detected. Committing changes."
             echo "$downloaded_version" > version.txt
