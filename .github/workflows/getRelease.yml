@@ -1,0 +1,19 @@
+name: Get latest release
+on:
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files from tinyfarms-releases
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: 'thetinyfarms/tinyfarms-releases'
+          file: 'firmware-esp32_s3_devkit.bin'
+          target: 'fw/firmware-esp32_s3_devkit.bin'
+          token: ${{ secrets.GITHUB_TOKEN }}
