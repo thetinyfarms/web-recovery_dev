@@ -43,7 +43,6 @@ jobs:
         run: |
           git config --global user.email "hc@tinyfar.ms"
           git config --global user.name "HC"
-          git add fw/firmware-esp32_s3_devkit.bin
-          git commit -m "Update release files to "
+          git add fw/firmware-esp32_s3_devkit.bin fw/version.txt
+          git commit -m "Update release files to version $downloaded_version"
           git push
-        working-directory: ./thetinyfarms/web-recovery
