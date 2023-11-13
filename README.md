@@ -1,3 +1,9 @@
+## Tinyfarms Implementation:
+Tinyfarms web-recovery is accessible at the following link:\
+https://thetinyfarms.github.io/web-recovery/ \
+The firmware file is automatically updated when the [tinyfarms-releases](https://github.com/thetinyfarms/tinyfarms-releases)  repository is updated with a new release. 
+
+### Original README:
 ESP Launchpad is a web based tool, available for flashing firmware application to the ESP32 device connected via USB serial port.
 
 There are two modes available for using this tool:
