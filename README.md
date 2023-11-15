@@ -1,6 +1,6 @@
 ## Tinyfarms Implementation:
-Tinyfarms web-recovery is accessible at the following link:\
-https://thetinyfarms.github.io/web-recovery/ \
+Tinyfarms web-recovery_dev is accessible at the following link:\
+https://thetinyfarms.github.io/web-recovery_dev/ \
 The firmware file is automatically updated when the [tinyfarms-releases](https://github.com/thetinyfarms/tinyfarms-releases)  repository is updated with a new release. 
 
 ### Original README:
