@@ -42,8 +42,8 @@ jobs:
         if: steps.check-if-new-version.outputs.return-code == '0'
         run: |
           downloaded_version="${{ steps.get-files.outputs.version }}"
-          git config --global user.email "hc@tinyfar.ms"
-          git config --global user.name "HC-bot"
+          git config --global user.email "samy@tinyfar.ms"
+          git config --global user.name "SAMY-bot"
           git add fw/firmware-esp32_s3_devkit.bin fw/version.txt
           git commit -m "Update release files to version $downloaded_version"
           git push
